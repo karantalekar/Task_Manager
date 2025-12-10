@@ -21,9 +21,12 @@ const Show_task = () => {
   useEffect(() => {
     const fetchTask = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/showtask", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const res = await axios.get(
+          "https://task-manager-4hlj.onrender.com/api/showtask",
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
         setTasksList(res.data);
       } catch (err) {
         if (err.response?.status === 401) navigate("/login");

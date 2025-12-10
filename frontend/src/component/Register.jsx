@@ -18,11 +18,14 @@ const Register = () => {
 
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/register", {
-        username,
-        email,
-        password,
-      });
+      const res = await axios.post(
+        "https://task-manager-4hlj.onrender.com/api/auth/register",
+        {
+          username,
+          email,
+          password,
+        }
+      );
 
       if (res.data.message === "User added successfully") {
         alert("User Registered Successfully");
