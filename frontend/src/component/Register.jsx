@@ -29,7 +29,7 @@ const Register = () => {
 
       if (res.data.message === "User added successfully") {
         alert("User Registered Successfully");
-        navigate("/login"); // redirect to login
+        navigate("/"); // redirect to login
       } else {
         alert(res.data.message || "Registration failed");
       }
@@ -105,7 +105,7 @@ const Register = () => {
         </button>
 
         <p className="text-center mt-3" style={{ fontSize: "14px" }}>
-          Already have an account? <Link to="/login">Login</Link>
+          Already have an account? <Link to="/">Login</Link>
         </p>
       </div>
     </div>

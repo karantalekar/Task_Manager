@@ -12,7 +12,7 @@ const Add_task = () => {
 
   // Redirect to login if token missing
   useEffect(() => {
-    if (!token) navigate("/login");
+    if (!token) navigate("/");
   }, [navigate, token]);
 
   const handleAdd = async () => {
@@ -35,7 +35,7 @@ const Add_task = () => {
       setTask("");
       setDescription("");
     } catch (err) {
-      if (err.response?.status === 401) navigate("/login");
+      if (err.response?.status === 401) navigate("/");
       else console.log("Task not added:", err);
     }
   };

@@ -8,14 +8,13 @@ import Footer from "./component/Footer";
 function App() {
   return (
     <>
-      <Footer />
       <Routes>
+        <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/add_task" element={<Add_task />} />
         <Route path="/show_task" element={<Show_task />} />
-        {/* <Route path="*" element={"page Not found"} /> */}
       </Routes>
+      <Footer />
     </>
   );
 }

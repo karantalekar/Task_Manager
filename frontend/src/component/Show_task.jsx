@@ -14,7 +14,7 @@ const Show_task = () => {
 
   // Redirect to login if no token
   useEffect(() => {
-    if (!token) navigate("/login");
+    if (!token) navigate("/");
   }, [navigate, token]);
 
   // Fetch tasks
@@ -29,7 +29,7 @@ const Show_task = () => {
         );
         setTasksList(res.data);
       } catch (err) {
-        if (err.response?.status === 401) navigate("/login");
+        if (err.response?.status === 401) navigate("/");
         else console.log(err);
       }
     };
@@ -61,7 +61,7 @@ const Show_task = () => {
       setEditTask(null);
       alert("Task updated successfully.");
     } catch (err) {
-      if (err.response?.status === 401) navigate("/login");
+      if (err.response?.status === 401) navigate("/");
       else alert("Task not updated: " + err.message);
     }
   };
@@ -90,7 +90,7 @@ const Show_task = () => {
       setTasksList((prev) => prev.filter((t) => t._id !== _id));
       alert("Task deleted successfully.");
     } catch (err) {
-      if (err.response?.status === 401) navigate("/login");
+      if (err.response?.status === 401) navigate("/");
       else alert("Failed to delete: " + err.message);
     }
   };
