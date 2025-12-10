@@ -47,7 +47,7 @@ const Show_task = () => {
   const handleUpdate = async () => {
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/updatetask/${editTask._id}`,
+        `https://task-manager-4hlj.onrender.com/api/updatetask/${editTask._id}`,
         { task: taskText, description },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -84,9 +84,12 @@ const Show_task = () => {
   const handleDelete = async (_id) => {
     if (!window.confirm("You want to delete this task?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/deletetask/${_id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      await axios.delete(
+        `https://task-manager-4hlj.onrender.com/api/deletetask/${_id}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setTasksList((prev) => prev.filter((t) => t._id !== _id));
       alert("Task deleted successfully.");
     } catch (err) {
